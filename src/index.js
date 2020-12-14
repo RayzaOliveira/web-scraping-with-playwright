@@ -1,20 +1,25 @@
-// Import the playwright library into our scraper.
+// O arquivo /index.js etá sendo usado como modelo para o arquivo /queroBolsa.js
+
+// Importe a biblioteca do dramaturgo para o nosso raspador.
 const playwright = require("playwright");
 
 async function main() {
-  // Open a Chromium browser. We use headless: false
-  // to be able to watch what's going on.
+  // Abra um navegador Chromium. Usamos headless: false
+  // para poder observar o que está acontecendo.
   const browser = await playwright.chromium.launch({
     headless: false,
   });
-  // Open a new page / tab in the browser.
+  // Abra uma nova página / guia no navegador.
   const page = await browser.newPage();
-  // Tell the tab to navigate to the JavaScript topic page.
+  // Diga à guia para navegar até a página do tópico JavaScript.
   await page.goto("https://github.com/topics/javascript");
-  // Pause for 10 seconds, to see what's going on.
+  // Faça uma pausa de 10 segundos para ver o que está acontecendo.
   await page.waitForTimeout(10000);
-  // Turn off the browser to clean up after ourselves.
+  // Desligue o navegador para limpar depois de nós mesmos.
   await browser.close();
 }
 
 main();
+
+// Observações:
+// link: https://medium.com/creditas-tech/a-pir%C3%A2mide-de-testes-a0faec465cc2
