@@ -1,17 +1,15 @@
-// Import the playwright library into our scraper.
+// raspagem no site querobolsa para futuramente utilizar -> teste e2e
 const playwright = require("playwright");
 
 async function main() {
-  // Open a Chromium browser. We use headless: false
-  // to be able to watch what's going on.
   const browser = await playwright.chromium.launch({
     headless: false,
   });
-  // Open a new page / tab in the browser.
+
   const page = await browser.newPage();
-  // Tell the tab to navigate to the JavaScript topic page.
+
   await page.goto("https://querobolsa.com.br/");
-  // Pause for 10 seconds, to see what's going on.
+
   await page.waitForTimeout(3000);
 
   await page.fill(
@@ -29,6 +27,10 @@ async function main() {
 
   await page.waitForTimeout(5000);
 
+  // TODO:
+  // Logo da faculdade
+
+  // Dados do curso: URL, nome do curso, nome da faculdade
   const links = await page.$$eval(
     "div.z-card.offer-search-card.z-card--small",
     (cards) => {
@@ -41,18 +43,27 @@ async function main() {
           "h3.z-title.offer-search-card-course-info__title.z-title--small.z-title--major a"
         ).textContent;
 
+        const univesityName = card.querySelector(
+          "h2.z-title.offer-search-card-course-info__university-title.z-title--minor"
+        ).textContent;
+
         return {
           url,
           name,
+          univesityName,
         };
       });
     }
   );
 
+  console.log("Rayza", links);
+
+  //  para uma futura evolução do projeto:  pode-se pegar os dados de cada link da lista
   await page.goto(`https://querobolsa.com.br${links[0].url}`);
 
   await page.waitForTimeout(10000);
 
+  // Dados do curso: tipo e endereço
   const [courseDetail] = await page.$$eval(
     "div.pdp-spotlight.pdp__spotlight section.ui-spotlight__main-content-wrapper",
     (headersElement) => {
@@ -74,6 +85,8 @@ async function main() {
     }
   );
 
+  // Dados do curso: valor, especialização
+  // O bloco de codigo a seguir, referente ao "valor", apresenta ser mais complexo, por esse motivo está incompleto.
   const checkoutDetail = await page.$$eval(
     "aside div.offer-card-sidebar-header__normal-offer-price-details",
     (items) => {
@@ -97,8 +110,12 @@ async function main() {
   console.log("checkoutDetail::", checkoutDetail);
 
   await page.waitForTimeout(5000);
-  // Turn off the browser to clean up after ourselves.
+
   await browser.close();
 }
 
 main();
+
+// Observações:
+// 1 - Pegar o link de um curso e ver quantos dados você consegue extrair
+// 2 - Pegar os dados dos N primeiros cursos que aparecem quando a gente coloca uma busca
