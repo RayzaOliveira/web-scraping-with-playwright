@@ -1,0 +1,12 @@
+{
+  "name": "web-scraping-with-playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node src/queroBolsa.js"
+  },
+  "dependencies": {
+    "playwright": "^1.6.2"
+  }
+}
