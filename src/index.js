@@ -22,4 +22,4 @@ async function main() {
 main();
 
 // Observações:
-// link: https://medium.com/creditas-tech/a-pir%C3%A2mide-de-testes-a0faec465cc2
+// link: https://blog.apify.com/how-to-scrape-the-web-with-playwright-ece1ced75f73
