@@ -27,10 +27,7 @@ async function main() {
 
   await page.waitForTimeout(5000);
 
-  // TODO:
-  // Logo da faculdade
-
-  // Dados do curso: URL, nome do curso, nome da faculdade
+  // Dados do curso: URL, nome do curso, nome da faculdade e Logo da faculdade
   const links = await page.$$eval(
     "div.z-card.offer-search-card.z-card--small",
     (cards) => {
@@ -43,33 +40,39 @@ async function main() {
           "h3.z-title.offer-search-card-course-info__title.z-title--small.z-title--major a"
         ).textContent;
 
-        const univesityName = card.querySelector(
+        const universityName = card.querySelector(
           "h2.z-title.offer-search-card-course-info__university-title.z-title--minor"
         ).textContent;
+
+        const universityLogo = card
+          .querySelector(
+            "img.offer-search-card-course-info__university-logo-img"
+          )
+          .getAttribute("src");
 
         return {
           url,
           name,
-          univesityName,
+          universityName,
+          universityLogo,
         };
       });
     }
   );
 
-  console.log("Rayza", links);
+  console.log("Lista da Rayza", links);
 
-  //  para uma futura evolução do projeto:  pode-se pegar os dados de cada link da lista
+  // Direcionamento para outras páginas
+  //  para uma futura evolução do projeto: pode-se pegar os dados de cada link da lista
   await page.goto(`https://querobolsa.com.br${links[0].url}`);
 
   await page.waitForTimeout(10000);
 
-  // Dados do curso: tipo e endereço
+  // Dados do curso: Modalidade do curso e endereço
   const [courseDetail] = await page.$$eval(
     "div.pdp-spotlight.pdp__spotlight section.ui-spotlight__main-content-wrapper",
     (headersElement) => {
       return headersElement.map((headerSection) => {
-        const nameCourse = headerSection.querySelector("header h1.z-title")
-          .textContent;
         const typeCourse = headerSection.querySelector("header span.z-text")
           .textContent;
         const address = headerSection.querySelector(
@@ -77,7 +80,6 @@ async function main() {
         ).textContent;
 
         return {
-          nameCourse,
           typeCourse,
           address,
         };
@@ -85,29 +87,30 @@ async function main() {
     }
   );
 
-  // Dados do curso: valor, especialização
+  // Dados do curso: valor antigo e valor atual (desconto)
   // O bloco de codigo a seguir, referente ao "valor", apresenta ser mais complexo, por esse motivo está incompleto.
-  const checkoutDetail = await page.$$eval(
-    "aside div.offer-card-sidebar-header__normal-offer-price-details",
-    (items) => {
-      return items.map((cardCheckout) => {
-        const priceElement = cardCheckout.querySelector(
-          "div.offer-card-sidebar-header__prices"
-        );
 
-        const oldPrice = priceElement.querySelector("span.z-text");
-        const currentPrice = priceElement.querySelector("strong.z-title");
+  // const checkoutDetail = await page.$$eval(
+  //   "aside div.offer-card-sidebar-header__normal-offer-price-details",
+  //   (items) => {
+  //     return items.map((cardCheckout) => {
+  //       const priceElement = cardCheckout.querySelector(
+  //         "div.offer-card-sidebar-header__prices"
+  //       );
 
-        return {
-          oldPrice,
-          currentPrice,
-        };
-      });
-    }
-  );
+  //       const oldPrice = priceElement.querySelector("span.z-text");
+  //       const currentPrice = priceElement.querySelector("strong.z-title");
+
+  //       return {
+  //         oldPrice,
+  //         currentPrice,
+  //       };
+  //     });
+  //   }
+  // );
 
   console.log("courseDetail::", courseDetail);
-  console.log("checkoutDetail::", checkoutDetail);
+  // console.log("checkoutDetail::", checkoutDetail);
 
   await page.waitForTimeout(5000);
 
@@ -119,3 +122,7 @@ main();
 // Observações:
 // 1 - Pegar o link de um curso e ver quantos dados você consegue extrair
 // 2 - Pegar os dados dos N primeiros cursos que aparecem quando a gente coloca uma busca
+
+// page.click(), para emular cliques do mouse
+// page.waitForFunction(), esperar que as coisas aconteçam
+// page.$$eval(), extrair dados de uma página do navegador
