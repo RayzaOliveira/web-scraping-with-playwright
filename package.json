@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node src/queroBolsa.js"
+    "start": "node src/index.js"
   },
   "dependencies": {
     "playwright": "^1.6.2"
