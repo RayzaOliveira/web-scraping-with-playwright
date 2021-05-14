@@ -1,9 +1,9 @@
 // raspagem no site querobolsa para futuramente utilizar -> teste e2e
 const playwright = require("playwright");
 
-async function main() {
+async function scrapingQueroBolsa() {
   const browser = await playwright.chromium.launch({
-    headless: false,
+    headless: true,
   });
 
   const page = await browser.newPage();
@@ -32,92 +32,63 @@ async function main() {
     "div.z-card.offer-search-card.z-card--small",
     (cards) => {
       return cards.map((card) => {
-        const url = card
-          .querySelector("div.grouped-item-card-cta a")
-          .getAttribute("href");
-
+        const url = card.querySelector("div.grouped-item-card-cta a");
         const name = card.querySelector(
           "h3.z-title.offer-search-card-course-info__title.z-title--small.z-title--major a"
-        ).textContent;
+        );
 
         const universityName = card.querySelector(
           "h2.z-title.offer-search-card-course-info__university-title.z-title--minor"
-        ).textContent;
+        );
 
-        const universityLogo = card
-          .querySelector(
-            "img.offer-search-card-course-info__university-logo-img"
-          )
-          .getAttribute("src");
+        const universityLogo = card.querySelector(
+          "img.offer-search-card-course-info__university-logo-img"
+        );
 
         return {
-          url,
-          name,
-          universityName,
-          universityLogo,
+          url: url && url.getAttribute("href"),
+          name: name && name.textContent,
+          universityName: universityName && universityName.textContent,
+          universityLogo: universityLogo && universityLogo.getAttribute("src"),
         };
       });
     }
   );
 
-  console.log("Lista da Rayza", links);
+  console.log("Links", links);
 
   // Direcionamento para outras páginas
   //  para uma futura evolução do projeto: pode-se pegar os dados de cada link da lista
-  await page.goto(`https://querobolsa.com.br${links[0].url}`);
+  await page.goto(
+    `https://querobolsa.com.br${links && links[0] && links[0].url}`
+  );
 
-  await page.waitForTimeout(10000);
+  await page.waitForLoadState("networkidle");
 
   // Dados do curso: Modalidade do curso e endereço
   const [courseDetail] = await page.$$eval(
     "div.pdp-spotlight.pdp__spotlight section.ui-spotlight__main-content-wrapper",
     (headersElement) => {
       return headersElement.map((headerSection) => {
-        const typeCourse = headerSection.querySelector("header span.z-text")
-          .textContent;
+        const typeCourse = headerSection.querySelector("header span.z-text");
         const address = headerSection.querySelector(
           "p.z-text.pdp-campus-selector__campus-full-address.show-md.z-text--small.z-text--left span"
-        ).textContent;
+        );
 
         return {
-          typeCourse,
-          address,
+          typeCourse: typeCourse && typeCourse.textContent,
+          address: address && address.textContent,
         };
       });
     }
   );
 
-  // Dados do curso: valor antigo e valor atual (desconto)
-  // O bloco de codigo a seguir, referente ao "valor", apresenta ser mais complexo, por esse motivo está incompleto.
-
-  // const checkoutDetail = await page.$$eval(
-  //   "aside div.offer-card-sidebar-header__normal-offer-price-details",
-  //   (items) => {
-  //     return items.map((cardCheckout) => {
-  //       const priceElement = cardCheckout.querySelector(
-  //         "div.offer-card-sidebar-header__prices"
-  //       );
-
-  //       const oldPrice = priceElement.querySelector("span.z-text");
-  //       const currentPrice = priceElement.querySelector("strong.z-title");
-
-  //       return {
-  //         oldPrice,
-  //         currentPrice,
-  //       };
-  //     });
-  //   }
-  // );
-
   console.log("courseDetail::", courseDetail);
-  // console.log("checkoutDetail::", checkoutDetail);
-
-  await page.waitForTimeout(5000);
 
   await browser.close();
 }
 
-main();
+module.exports = scrapingQueroBolsa;
 
 // Observações:
 // 1 - Pegar o link de um curso e ver quantos dados você consegue extrair
