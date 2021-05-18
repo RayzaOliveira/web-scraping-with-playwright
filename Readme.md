@@ -20,10 +20,10 @@ Junto com um executor de teste, o <strong>Playwright</strong> pode ser usado par
 
 ## 📌 Tópicos Estudados
 
-O presente projeto permite fazer uma raspagem no site <strong>Querobolsa e buscaPe</strong>, como forma de estudo para testes <strong>e2e</strong> (end to end). 
+O presente projeto permite fazer uma raspagem no site <strong>Quero Bolsa e Busca Pé</strong>, como forma de estudo para testes <strong>e2e</strong> (end to end). 
 Dessa forma, foi possível obter as seguintes informações: 
 
-### Querobolsa  
+### Quero Bolsa  
 
 - URL
 - Nome do curso
@@ -31,7 +31,7 @@ Dessa forma, foi possível obter as seguintes informações:
 - Modalidade do curso
 - Endereço
 
-### buscaPe
+### Busca Pé
 
 - Id
 - URL da imagem
