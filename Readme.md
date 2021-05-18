@@ -65,9 +65,9 @@ $ npm i
 
 # Inicie a aplicação web
 
-$ yarn dev
+$ yarn start
 # or
-$ npm run dev
+$ npm run start
 ```
 
 ## :rocket: Para mais informações
@@ -78,6 +78,6 @@ $ npm run dev
 
 
 <h4 align="center">
-    Feito com 🎭 by <a href="https://www.linkedin.com/in/rayza-oliveira-costa-482658129/" target="_blank">Rayza Oliveira</a>
+    Feito com 🎭 by <a href="https://linktr.ee/oliveirarayza" target="_blank">Rayza Oliveira</a>
 </h4>
 <!-- 
