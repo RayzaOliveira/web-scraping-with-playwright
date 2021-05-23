@@ -20,14 +20,25 @@ Junto com um executor de teste, o <strong>Playwright</strong> pode ser usado par
 
 ## 📌 Tópicos Estudados
 
-O presente projeto permite fazer uma raspagem no site querobolsa, como forma de estudo para testes <strong>e2e</strong> (end to end). 
-Dessa forma, foi possível obter as seguintes informações do curso: 
+O presente projeto permite fazer uma raspagem no site <strong>Quero Bolsa e Busca Pé</strong>, como forma de estudo para testes <strong>e2e</strong> (end to end). 
+Dessa forma, foi possível obter as seguintes informações: 
+
+### Quero Bolsa  
 
 - URL
 - Nome do curso
 - Nome da faculdade 
 - Modalidade do curso
 - Endereço
+
+### Busca Pé
+
+- Id
+- URL da imagem
+- URL do produto
+- Nome do produto
+- Disponibilidade 
+- Preço
 
 ## :computer: Execute no seu PC 
 <br/>
@@ -54,9 +65,9 @@ $ npm i
 
 # Inicie a aplicação web
 
-$ yarn dev
+$ yarn start
 # or
-$ npm run dev
+$ npm run start
 ```
 
 ## :rocket: Para mais informações
@@ -67,6 +78,6 @@ $ npm run dev
 
 
 <h4 align="center">
-    Feito com 🎭 by <a href="https://www.linkedin.com/in/rayza-oliveira-costa-482658129/" target="_blank">Rayza Oliveira</a>
+    Feito com 🎭 by <a href="https://linktr.ee/oliveirarayza" target="_blank">Rayza Oliveira</a>
 </h4>
 <!-- 
