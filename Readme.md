@@ -2,7 +2,7 @@
 <h3 align="center">
     <img alt="Logo" title="#logo" width="320px" src="https://firebasestorage.googleapis.com/v0/b/resume-7d906.appspot.com/o/play-removebg-preview.png?alt=media&token=3389bfa0-1026-4411-afc1-8573aa06af67"/>
     <br />
-    <b>Web-Scraping usando o playwright </b>
+    <b>Web-Scraping using the playwright</b>
     <br />
 </h3>
 <p align="center">
@@ -10,67 +10,70 @@
     <img alt="Made by Rayza" src="https://img.shields.io/badge/made%20by-Rayza%20Oliveira-red">
   </a>
   <img alt="License" src="https://img.shields.io/badge/licence-MIT-red">
+  <a href="https://github.com/RayzaOliveira/web-scraping-with-playwright/blob/main/Readme-Portugu%C3%AAs.md">
+    <img alt="Readme em Português" src="https://img.shields.io/badge/Readme-Português-brigthgreen">
+  </a>
 </p>
 
-## :bookmark: Sobre
+## :bookmark: About
 
-O <strong>Playwright</strong> permite um teste confiável de ponta a ponta para aplicativos da web. Fornecendo um conjunto de APIs para automatizar os navegadores Chromium, Firefox e WebKit. Usando a API do Playwright, você pode escrever código JavaScript para criar novas páginas do navegador, navegar para URLs e interagir com os elementos em uma página.
+<strong> Playwright </strong> enables reliable end-to-end testing for web applications. Providing a set of APIs to automate Chromium, Firefox and WebKit browsers. Using the Playwright API, you can write JavaScript code to create new browser pages, navigate to URLs, and interact with the elements on a page.
 
-Junto com um executor de teste, o <strong>Playwright</strong> pode ser usado para automatizar as interações do usuário para validar e testar aplicativos da web. 
+Together with a test runner, <strong> Playwright </strong> can be used to automate user interactions to validate and test web applications.
 
-## 📌 Tópicos Estudados
+## 📌 Topics Studied
 
-O presente projeto permite fazer uma raspagem no site <strong>Quero Bolsa e Busca Pé</strong>, como forma de estudo para testes <strong>e2e</strong> (end to end). 
-Dessa forma, foi possível obter as seguintes informações: 
+The present project allows a sweep on the <strong> Quero Bolsa e Busca Pé </strong> website, as a form of study for the <strong> e2e </strong> tests (end to end).
+Thus, it was possible to obtain the following information:
 
-### Quero Bolsa  
+### Quero Bolsa
 
 - URL
-- Nome do curso
-- Nome da faculdade 
-- Modalidade do curso
-- Endereço
+- Course name
+- University name
+- Course type
+- Address
 
 ### Busca Pé
 
 - Id
-- URL da imagem
-- URL do produto
-- Nome do produto
-- Disponibilidade 
-- Preço
+- Image URL
+- Product URL
+- Product's name
+- Availability
+- Price
 
-## :computer: Execute no seu PC 
+##: computer: Run on your PC 
 <br/>
 
--  Clonando o projeto
+-  Cloning the project
 
 ```sh
 $ git clone https://github.com/RayzaOliveira/web-scraping-with-playwright
 ```
 <br />
 
--  Executando a Aplicação
+- Running the Application
 
-```sh
-# Acesse o diretório do projeto
+``` sh
+# Access the project directory
 
 $ cd web-scraping-with-playwright
 
-# Instale as dependências
+# Install the dependencies
 
 $ yarn
 # or
 $ npm i
 
-# Inicie a aplicação web
+# Launch the web application
 
 $ yarn start
 # or
 $ npm run start
 ```
 
-## :rocket: Para mais informações
+## :rocket: For more informations
 
 
 - **[Playwright Documentation](https://playwright.dev/docs/intro)**
@@ -78,6 +81,6 @@ $ npm run start
 
 
 <h4 align="center">
-    Feito com 🎭 by <a href="https://linktr.ee/oliveirarayza" target="_blank">Rayza Oliveira</a>
+    Made with 🎭 by <a href="https://linktr.ee/oliveirarayza" target="_blank">Rayza Oliveira</a>
 </h4>
 <!-- 

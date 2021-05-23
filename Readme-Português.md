@@ -7,9 +7,9 @@
 </h3>
 <p align="center">
   <a href="https://www.linkedin.com/in/rayza-oliveira-costa-482658129/">
-    <img alt="Made by Rayza" src="https://img.shields.io/badge/made%20by-Rayza%20Oliveira-red">
+    <img alt="Made by Rayza" src="https://img.shields.io/badge/Feito%20por-Rayza%20Oliveira-red">
   </a>
-  <img alt="License" src="https://img.shields.io/badge/licence-MIT-red">
+  <img alt="License" src="https://img.shields.io/badge/Licença-MIT-red">
   <a href="https://github.com/RayzaOliveira/web-scraping-with-playwright">
     <img alt="Readme em Português" src="https://img.shields.io/badge/Readme-English-blue">
   </a>
@@ -23,8 +23,10 @@ Junto com um executor de teste, o <strong>Playwright</strong> pode ser usado par
 
 ## 📌 Tópicos Estudados
 
-O presente projeto permite fazer uma raspagem no site querobolsa, como forma de estudo para testes <strong>e2e</strong> (end to end). 
-Dessa forma, foi possível obter as seguintes informações do curso: 
+O presente projeto permite fazer uma raspagem no site <strong>Quero Bolsa e Busca Pé</strong>, como forma de estudo para testes <strong>e2e</strong> (end to end). 
+Dessa forma, foi possível obter as seguintes informações: 
+### Quero Bolsa
+
 
 - URL
 - Nome do curso
@@ -32,6 +34,14 @@ Dessa forma, foi possível obter as seguintes informações do curso:
 - Modalidade do curso
 - Endereço
 
+### Busca Pé
+
+- Identidade
+- Imagem URL
+- URL do produto
+- Nome do produto
+- Disponibilidade
+- Preço 
 ## :computer: Execute no seu PC 
 <br/>
 
@@ -52,21 +62,21 @@ $ cd web-scraping-with-playwright
 # Instale as dependências
 
 $ yarn
-# or
+# ou
 $ npm i
 
 # Inicie a aplicação web
 
-$ yarn dev
-# or
-$ npm run dev
+$ yarn start
+# ou
+$ npm run start
 ```
 
 ## :rocket: Para mais informações
 
 
-- **[Playwright Documentation](https://playwright.dev/docs/intro)**
-- **[Project on GitHub](https://github.com/microsoft/playwright)**
+- **[Documentação do Playwright](https://playwright.dev/docs/intro)**
+- **[Projeto no GitHub](https://github.com/microsoft/playwright)**
 
 
 <h4 align="center">
